@@ -40,6 +40,7 @@ import {
   AboutCommunitySection,
   GROUP_LABEL_CLASSNAME,
 } from "./AboutCommunitySection";
+import { AboutPiruSection } from "./AboutPiruSection";
 
 const DEFAULT_TAGLINE = SITE_FLAVOR_CONFIG.description;
 const ABOUT_CONFIG = SITE_FLAVOR_CONFIG.about;
@@ -264,6 +265,15 @@ export const AboutPage = memo(function AboutPage({
           } satisfies PublicTableOfContentsItem,
         ]
       : []),
+    ...(ABOUT_CONFIG.showMobileApp
+      ? [
+          {
+            id: "mobile-app",
+            label: t("Unofficial mobile app"),
+            icon: "lucide:smartphone",
+          } satisfies PublicTableOfContentsItem,
+        ]
+      : []),
     ...(ABOUT_CONFIG.contact
       ? [
           {
@@ -409,6 +419,15 @@ export const AboutPage = memo(function AboutPage({
             <PublicSectionHeading icon="lucide:handshake" title={t("Partners & Community")} />
             {communityIntro}
             <AboutCommunitySection />
+          </section>
+        ) : null}
+
+        {/* Piru, an unofficial iPhone app built on the dataset. dose.wiki only
+            (see `about.showMobileApp`). */}
+        {ABOUT_CONFIG.showMobileApp ? (
+          <section id="mobile-app" className="scroll-mt-24 space-y-6">
+            <PublicSectionHeading icon="lucide:smartphone" title={t("Unofficial mobile app")} />
+            <AboutPiruSection />
           </section>
         ) : null}
 

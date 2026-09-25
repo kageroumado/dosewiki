@@ -228,6 +228,11 @@ export type SiteAboutConfig = {
    * partners and neighbouring communities, so it belongs to that publication only.
    */
   readonly showCommunity: boolean;
+  /**
+   * Whether the "Unofficial mobile app" section is shown. Piru reads the dose.wiki
+   * dataset, so the card belongs to that publication only.
+   */
+  readonly showMobileApp: boolean;
   /** Heading for the final About tab's panel and its cards. */
   readonly docsTitle: string;
   readonly docLinks: readonly SiteAboutDocLink[];
@@ -377,6 +382,7 @@ const DOSEWIKI_CONFIG: SiteFlavorConfig = {
     missionMarkdown: null,
     showOpenData: true,
     showCommunity: true,
+    showMobileApp: true,
     docsTitle: msg("Documentation"),
     docLinks: [
       {
@@ -561,6 +567,8 @@ const EFFECT_INDEX_CONFIG: SiteFlavorConfig = {
     showOpenData: false,
     // Partners & Community is dose.wiki's partner and community roster.
     showCommunity: false,
+    // Piru is built on the dose.wiki dataset.
+    showMobileApp: false,
     docsTitle: msg("Licensing & Contact"),
     docLinks: [
       {

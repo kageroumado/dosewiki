@@ -31,6 +31,7 @@ const expectedSectionIds = [
   ...(showOpenData ? ["data"] : []),
   ...(isEffectIndex() ? ["contributors"] : []),
   ...(SITE_FLAVOR_CONFIG.about.showCommunity ? ["community"] : []),
+  ...(SITE_FLAVOR_CONFIG.about.showMobileApp ? ["mobile-app"] : []),
   ...(SITE_FLAVOR_CONFIG.about.contact ? ["contact"] : []),
 ];
 
